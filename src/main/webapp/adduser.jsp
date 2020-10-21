@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
-  <title>Bootstrap Theme</title>
+  <title>Add User</title>
 </head>
 
 <body>
@@ -52,17 +52,6 @@
     </div>
   </nav>
 
-  <!-- HEADER -->
-  <header id="main-header" class="py-2 bg-primary text-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h1>
-            Post One</h1>
-        </div>
-      </div>
-    </div>
-  </header>
 
   <!-- ACTIONS -->
   <section id="actions" class="py-4 mb-4 bg-light">
