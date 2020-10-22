@@ -24,7 +24,7 @@ public class Login extends HttpServlet {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		String qry = "select * from genx.password where username='" + un + "' and password='" + pw + "'";
+		String qry = "select * from genx.password where username=? and password=md5(?)";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
@@ -35,6 +35,9 @@ public class Login extends HttpServlet {
 			System.out.println("Connetion Establish with db server");
 			
 			pstmt=con.prepareStatement(qry);
+			System.out.println("Platform Created");
+			pstmt.setString(1, un);
+			pstmt.setString(2, pw);
 			
 			rs=pstmt.executeQuery();
 			

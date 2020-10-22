@@ -7,14 +7,13 @@ response.setHeader("Progma", "no-cache");//http1.0
 response.setHeader("Expires","0");//proxies
 	if(session.getAttribute("username")== null){
 		response.sendRedirect("login.jsp");}
-String id=request.getParameter("delete");
+String id=request.getParameter("id");
 try
 {
 Class.forName("com.mysql.jdbc.Driver");
 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306?user=root&password=7011630679");
 Statement st=conn.createStatement();
 int i=st.executeUpdate("DELETE FROM genx.salary WHERE id="+id);
-
 response.sendRedirect("welcome.jsp");
 }
 catch(Exception e)

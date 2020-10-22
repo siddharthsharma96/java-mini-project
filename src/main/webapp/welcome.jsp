@@ -59,12 +59,12 @@
   </nav>
 
   <!-- HEADER -->
-  <header id="main-header" class="py-2 bg-primary text-white">
+  <header id="main-header" class="py-2 bg-warning text-white">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
           <h1>
-            <i class="fas fa-pencil-alt"></i> Posts</h1>
+            <i class="fas fa-users"></i> Users</h1>
         </div>
       </div>
     </div>
@@ -98,11 +98,11 @@ ResultSet resultSet = null;
             <table class="table table-striped">
               <thead class="thead-dark">
                 <tr>
-                 <th>id</th>
-                  <th>Username</th>
-                  <th>Email</th>
-                  <th>Salary</th>
-                  <th>Actions</th>
+                 
+                  <th class="text-center">Username</th>
+                  <th class="text-center">Email</th>
+                  <th class="text-center">Salary</th>
+                  <th class="text-center">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -116,13 +116,15 @@ ResultSet resultSet = null;
 				while(resultSet.next()){
 				%>
                 <tr>
-                 <td><%=resultSet.getInt("id") %></td>
-                  <td><%=resultSet.getString("username") %></td>
-				<td><%=resultSet.getString("email") %></td>
-				<td><%=resultSet.getInt("salary") %></td>
-                  <td>
-                  <a href="delete.jsp?id=<%=resultSet.getInt("id") %>" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                    <a href="detail.jsp?id=<%=resultSet.getInt("id")%>" class="btn btn-primary"><i class="fa fa-pencil-square" aria-hidden="true"></i>Edit</a>
+                 
+                  <td class="text-center"><%=resultSet.getString("username") %></td>
+				<td class="text-center"><%=resultSet.getString("email") %></td>
+				<td class="text-center"><%=resultSet.getInt("salary") %></td>
+                  <td class="text-center">
+                  <a onclick='abc(<%=resultSet.getInt("id") %>)' data-id="<%=resultSet.getInt("id") %>" class="btn btn-danger px-4" data-toggle="modal" data-target="#deleteModal" >
+                  <i class="fa fa-trash" aria-hidden="true"></i></a>
+                    <a href="detail.jsp?id=<%=resultSet.getInt("id")%>" class="btn btn-primary ">
+                    <i class="fa fa-pencil-square" aria-hidden="true"></i>Edit</a>
                   </td>
                 </tr>
                 <% 
@@ -168,7 +170,40 @@ e.printStackTrace();
       </div>
     </div>
   </footer>
+ <div class="modal fade" id="deleteModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title">Delete user</h5>
+          <button class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <p>Are you sure you want to delete</p>
+          </form>
+        </div>
+        <div class="modal-footer">
+       <form  action="delete.jsp">
+		<input id=delete type="hidden" name="delete" value=null>
+		<input type="submit" value="delete"  class="btn btn-success" >
+		</form>
+        
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+  	function abc(d){
+  	    console.log('hello dlete',d)
+  		document.getElementById('delete').value=d;
+  	    console.log('executed')
 
+  	}
+  </script>
+  
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"

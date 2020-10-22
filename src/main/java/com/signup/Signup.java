@@ -19,7 +19,7 @@ public class Signup extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email=request.getParameter("email");
 		String password=request.getParameter("password");		
-		String qry = "INSERT INTO genx.password VALUES(?, ?);";
+		String qry = "INSERT INTO genx.password (username,password) VALUES (?,md5(?))";
 		
 		Connection con=null;
 		PreparedStatement stmt=null;

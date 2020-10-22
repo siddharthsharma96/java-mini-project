@@ -74,7 +74,7 @@
         <div class="col">
           <div class="card">
             <div class="card-header">
-              <h4>Create Post</h4>
+              <h4>Create User</h4>
             </div>
             <div class="card-body">
               <form action="Adduser" method="post">
