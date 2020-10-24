@@ -42,8 +42,8 @@
         </ul>
 
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown mr-3">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+          <li class="nav-item  mr-3">
+            <a href="#" class="nav-link ">
               <i class="fas fa-user"></i> Welcome  ${username}
             </a>
    
@@ -162,6 +162,7 @@ e.printStackTrace();
       <div class="row">
         <div class="col">
           <p class="lead text-center">
+          
             Copyright &copy;
             <span id="year"></span>
             Genx

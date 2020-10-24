@@ -116,7 +116,7 @@ while(resultSet.next()){
             <div class="card-body">
               <form method="post" action="update-process.jsp">
               <div class="form-group">
-                  <label for="id">id</label>
+                  
                   <input type="hidden" class="form-control" name="updateid" value="<%=resultSet.getString("id") %>">
                 </div>
                 <div class="form-group">
