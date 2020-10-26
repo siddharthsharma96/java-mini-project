@@ -12,6 +12,7 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <title>Sign-up</title>
 </head>
@@ -24,11 +25,11 @@
   </nav>
 
   <!-- HEADER -->
-  <header id="main-header" class="py-2 bg-primary text-white">
+  <header id="main-header" class="py-2 mb-4 bg-primary text-white">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <h1>
+          <h1 data-aos="zoom-in-up" data-aos-duration="3000">
             <i class="fas fa-user"></i> Genx Admin</h1>
         </div>
       </div>
@@ -43,21 +44,21 @@
         <div class="col-md-6 mx-auto">
           <div class="card">
             <div class="card-header">
-              <h4>Account Sign-up</h4>
+              <h4 data-aos="fade-right" data-aos-duration="2000">Account Sign-up</h4>
                
             </div>
             <div class="card-body">
               <form action="Signup" method="post" >
                 <div class="form-group">
-                  <label for="email">Username</label>
-                  <input type="text" class="form-control" name="email" placeholder="Username" minlength=4 required>
+                  <label for="email" data-aos="zoom-in-up" data-aos-easing="linear" data-aos-duration="2000">Username</label>
+                  <input data-aos="fade-up" data-aos-duration="1500" type="text" class="form-control" name="email" placeholder="Username" minlength=4 required>
                 </div>
                 <div class="form-group">
-                  <label >Password</label>
-                  <input type="password" class="form-control" name="password" placeholder="Password"  required>
+                  <label data-aos="zoom-in-up" data-aos-easing="linear" data-aos-duration="2000">Password</label>
+                  <input data-aos="fade-up" data-aos-duration="1500" type="password" class="form-control" name="password" placeholder="Password"  required>
                 </div>
-                <input type="submit" value="Submit" class="btn btn-primary px-5" >
-                <input type="reset" value="Reset" class="btn btn-primary px-5" /><br>
+                <input data-aos="fade-left" data-aos-duration="1000" type="submit" value="Submit" class="btn btn-primary px-5" >
+                <input data-aos="fade-right" data-aos-duration="1000"  type="reset" value="Reset" class="btn btn-primary px-5" /><br>
                 <p class="mt-1">Already registered!! <a href="login.jsp">Login Here</a><p>
               </form>
             </div>
@@ -88,7 +89,10 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
     crossorigin="anonymous"></script>
-
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 </body>
 
 </html>

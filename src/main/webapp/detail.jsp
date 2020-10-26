@@ -41,6 +41,7 @@ while(resultSet.next()){
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <title>edit</title>
 </head>
@@ -77,24 +78,14 @@ while(resultSet.next()){
     </div>
   </nav>
 
-  <!-- HEADER -->
-  <header id="main-header" class="py-2 bg-primary text-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h1>
-           </h1>
-        </div>
-      </div>
-    </div>
-  </header>
+ 
 
   <!-- ACTIONS -->
-  <section id="actions" class="py-4 mb-4 bg-light">
+  <section id="actions" class="py-4 mb-4 bg-primary text-white">
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <a href="welcome.jsp" class="btn btn-light btn-block">
+          <a data-aos="fade-left" data-aos-easing="ease-in-sine" data-aos-duration="1000" href="welcome.jsp" class="btn btn-light btn-block">
             <i class="fas fa-arrow-left"></i> Back To Dashboard
           </a>
         </div>
@@ -194,7 +185,10 @@ e.printStackTrace();
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
     crossorigin="anonymous"></script>
   <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
-
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
   <script>
     // Get the current year for the copyright
     $('#year').text(new Date().getFullYear());
