@@ -20,7 +20,7 @@ public class Adduser extends HttpServlet {
 		String addemail=request.getParameter("addemail");
 		String addusername=request.getParameter("addusername");
 		String addsalary=request.getParameter("addsalary");
-		String qry = "INSERT INTO genx.salary (username,email,salary) VALUES(?, ?,?);";
+		String qry = "INSERT INTO genx.salary (empname,email,salary) VALUES(?, ?,?);";
 		
 		Connection con=null;
 		PreparedStatement stmt=null;

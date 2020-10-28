@@ -23,7 +23,7 @@ try
 {
 Class.forName(driverName);
 con = DriverManager.getConnection("jdbc:mysql://localhost:3306?user=root&password=7011630679");
-String sql="Update genx.salary set id=?,email=? ,username=?,salary=? where id="+updateid;
+String sql="Update genx.salary set id=?,email=? ,empname=?,salary=? where id="+updateid;
 ps = con.prepareStatement(sql);
 ps.setString(1,updateid);
 ps.setString(2, updateemail);

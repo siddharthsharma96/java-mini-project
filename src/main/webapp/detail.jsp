@@ -112,15 +112,15 @@ while(resultSet.next()){
                 </div>
                 <div class="form-group">
                   <label for="username">Username</label>
-                  <input type="text" class="form-control" name="updateusername" value="<%=resultSet.getString("username") %>">
+                  <input type="text" class="form-control" minlength=4 pattern="^[A-Za-z -]+$" title="only alphabets" name="updateusername" value="<%=resultSet.getString("empname") %>">
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="email" class="form-control" name="updateemail" value="<%=resultSet.getString("email") %>">
+                  <input type="email" class="form-control" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="please enter a valid email" name="updateemail" value="<%=resultSet.getString("email") %>">
                 </div>
                 <div class="form-group">
                   <label for="salary">Salary</label>
-                  <input type="text" class="form-control" name="updatesalary" value="<%=resultSet.getString("salary") %>">
+                  <input type="number" class="form-control" name="updatesalary" value="<%=resultSet.getString("salary") %>">
                 </div> 
                 <div class="col-md-3">
                 <input type="submit" value="submit" class="btn btn-success btn-block">

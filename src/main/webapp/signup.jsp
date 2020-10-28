@@ -55,7 +55,11 @@
                 </div>
                 <div class="form-group">
                   <label data-aos="zoom-in-up" data-aos-easing="linear" data-aos-duration="2000">Password</label>
-                  <input data-aos="fade-up" data-aos-duration="1500" type="password" class="form-control" name="password" placeholder="Password"  required>
+                  <input data-aos="fade-up" data-aos-duration="1500" type="password" class="form-control" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  required>
+                </div>
+                <div class="form-group">
+                  <label data-aos="zoom-in-up" data-aos-easing="linear" data-aos-duration="2000">Conform Password</label>
+                  <input data-aos="fade-up" data-aos-duration="1500" type="password" class="form-control" name="cnfpassword" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  required>
                 </div>
                 <input data-aos="fade-left" data-aos-duration="1000" type="submit" value="Submit" class="btn btn-primary px-5" >
                 <input data-aos="fade-right" data-aos-duration="1000"  type="reset" value="Reset" class="btn btn-primary px-5" /><br>

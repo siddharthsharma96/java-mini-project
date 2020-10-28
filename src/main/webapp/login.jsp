@@ -51,12 +51,13 @@
             <div class="card-body">
               <form action="Login" method="post" >
                 <div class="form-group">
-                  <label for="email" data-aos="zoom-in-up" data-aos-easing="linear" data-aos-duration="2000">Username</label>
-                  <input data-aos="fade-up" data-aos-duration="1500" type="text" class="form-control" name="un" placeholder="Username" minlength=4 required>
+                  <label for="un" data-aos="zoom-in-up" data-aos-easing="linear" data-aos-duration="2000">Username</label>
+                  <input data-aos="fade-up" data-aos-duration="1500" type="text" class="form-control" name="un" placeholder="Username" minlength=4  required>
                 </div>
                 <div class="form-group">
                   <label data-aos="zoom-in-up" data-aos-easing="linear" data-aos-duration="2000">Password</label>
-                  <input data-aos="fade-up" data-aos-duration="1500" type="password" class="form-control"  name="pw" placeholder="Password"  required>
+                  <input data-aos="fade-up" data-aos-duration="1500" type="password" class="form-control"  name="pw" placeholder="Password" 
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                 </div>
                 <input type="submit" data-aos="fade-up" data-aos-duration="2000" value="login" class="btn btn-primary btn-block">
                 <a href="signup.jsp" class="mt-2 pt-5 text-right  text-capitalize">+ New user </a>

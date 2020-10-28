@@ -67,6 +67,14 @@
 	          <h1 data-aos="zoom-in-up" data-aos-duration="3000">
 	            <i class="fas fa-users"></i> Users</h1>
 	        </div>
+	        <div class="col-md-6 mt-2 ml-auto">
+          <div class="input-group">
+            <input name="search-user" type="text" class="form-control" placeholder="Search Users...">
+            <div class="input-group-append">
+              <button class="btn btn-warning">Search</button>
+            </div>
+          </div>
+        </div>
 	      </div>
 	    </div>
 	  </header>
@@ -104,6 +112,7 @@
 	                  <th class="text-center">Email</th>
 	                  <th class="text-center">Salary</th>
 	                  <th class="text-center">Actions</th>
+	                  <th></th>
 	                </tr>
 	              </thead>
 	              <tbody>
@@ -111,21 +120,26 @@
 					try{ 
 					connection = DriverManager.getConnection("jdbc:mysql://localhost:3306?user=root&password=7011630679");
 					statement=connection.createStatement();
-					String sql ="SELECT * FROM genx.salary";
+					String sql ="SELECT * FROM genx.salary where status!=3";
 					
 					resultSet = statement.executeQuery(sql);
 					while(resultSet.next()){
 					%>
 	                <tr data-aos="fade-left" data-aos-easing="linear" data-aos-duration="2000">
 	                 
-	                  <td class="text-center" ><%=resultSet.getString("username") %></td>
+	                  <td class="text-center" ><%=resultSet.getString("empname") %></td>
 					<td class="text-center"><%=resultSet.getString("email") %></td>
 					<td class="text-center"><%=resultSet.getInt("salary") %></td>
 	                  <td class="text-center">
-	                  <a  onclick='abc(<%=resultSet.getInt("id") %>)' data-id="<%=resultSet.getInt("id") %>" class="btn btn-danger px-4" data-toggle="modal" data-target="#deleteModal" >
+	                  <a  onclick='abc(<%=resultSet.getInt("id") %>)' data-id="<%=resultSet.getInt("id") %>" class="btn btn-danger text-white px-4" data-toggle="modal" data-target="#deleteModal" >
 	                  <i class="fa fa-trash" aria-hidden="true"></i></a>
 	                    <a href="detail.jsp?id=<%=resultSet.getInt("id")%>" class="btn btn-primary ">
 	                    <i class="fa fa-pencil-square" aria-hidden="true"></i>Edit</a>
+	                   </td>
+	                   <td>
+	                   	<button onclick="loadDoc(<%=resultSet.getInt("id")%>)"type="button" id='<%=resultSet.getInt("id")%>' 
+	                   	data-toggle="button" aria-pressed="false" autocomplete="off" class="btn btn-primary ">
+	                    Draft</button>
 	                  </td>
 	                </tr>
 	                <% 
@@ -191,8 +205,6 @@
 			<input id=delete type="hidden" name="delete" value=null>
 			<input type="submit" value="delete"  class="btn btn-success" >
 			</form>
-	        
-	          
 	        </div>
 	      </div>
 	    </div>
@@ -203,8 +215,33 @@
 	  		document.getElementById('delete').value=d;
 	  	    console.log('executed')
 	
+	  	};
+	  	function loadDoc(str) {
+	  		let element = document.getElementById(str);
+            if(element.classList.contains("active")){
+            	var xhttp = new XMLHttpRequest();
+      	  	  xhttp.onreadystatechange = function() {
+      	  	    if (this.readyState == 4 && this.status == 200) {
+      	  	    document.getElementById(str).innerHTML ='Draft'
+      	  	    }
+      	  	  };
+      	  	xhttp.open("POST", "enable.jsp?id="+str, true);
+      	  	  
+      	  	  xhttp.send();
+            } else {
+            	var xhttp = new XMLHttpRequest();
+      	  	  xhttp.onreadystatechange = function() {
+      	  	    if (this.readyState == 4 && this.status == 200) {
+      	  	    document.getElementById(str).innerHTML ='save as Draft'
+      	  	    }
+      	  	  };
+      	  	xhttp.open("POST", "disable.jsp?id="+str, true);
+      	  	  xhttp.send();
+            }
+	  	  
 	  	}
-	  </script>
+	  	</script>
+	  	
 	  
 	  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	    crossorigin="anonymous"></script>
