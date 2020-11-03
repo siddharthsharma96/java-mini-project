@@ -21,8 +21,8 @@
 	response.setHeader("Cache-Control", "no-cache , no-store , must-revalidate");//http 1.1
 	response.setHeader("Progma", "no-cache");//http1.0
 	response.setHeader("Expires","0");//proxies
-		if(session.getAttribute("username")== null){
-			response.sendRedirect("login.jsp");}%>
+	if(session.getAttribute("username")== null){
+		response.sendRedirect("login.jsp");}%>
  <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
     <div class="container">
       <a href="welcome.jsp" class="navbar-brand">Genx</a>

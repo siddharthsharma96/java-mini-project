@@ -43,19 +43,17 @@ public class Adduser extends HttpServlet {
 			int i=stmt.executeUpdate();
 			System.out.println("Data Inserted");
 			if (i > 0) { 
-				
-				
 				response.sendRedirect("welcome.jsp");
 			} 
 			else { 
 				response.sendRedirect("login.jsp"); 
-				} 
+			}
+			con.close();
+			System.out.println("Data closed");
 			
 		}catch(Exception e)
 		{
 			e.printStackTrace();
-		}
-		
+		}	
 	}
-
 }

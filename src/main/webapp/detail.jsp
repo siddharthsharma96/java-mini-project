@@ -112,7 +112,7 @@ while(resultSet.next()){
                 </div>
                 <div class="form-group">
                   <label for="username">Username</label>
-                  <input type="text" class="form-control" minlength=4 pattern="^[A-Za-z -]+$" title="only alphabets" name="updateusername" value="<%=resultSet.getString("empname") %>">
+                  <input type="text"  style="text-transform:capitalize" class="form-control" minlength=4 pattern="^[A-Za-z -]+$" title="only alphabets" name="updateusername" value="<%=resultSet.getString("empname") %>">
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label>
