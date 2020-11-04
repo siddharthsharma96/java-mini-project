@@ -43,15 +43,15 @@ function a(){
 	var url="onLoad.jsp";  
 	  
 	try{  
-	request.onreadystatechange=function(){  
-	if(request.readyState==4){  
-	var val=request.responseText;  
-	document.getElementById('userdata').innerHTML=val;  
-	}  
+		request.onreadystatechange=function(){  
+			if(request.readyState==4){  
+				var val=request.responseText;  
+				document.getElementById('userdata').innerHTML=val;  
+		}  
 	}//end of function  
-	request.open("GET",url,true);  
-	request.send();  
-	}catch(e){alert("Unable to connect to server");}  
+		request.open("GET",url,true);  
+		request.send();  
+		}catch(e){alert("Unable to connect to server");}  
 	}
 </script> 
 </head>
@@ -192,7 +192,7 @@ function a(){
 				var xhttp = new XMLHttpRequest();
 				xhttp.onreadystatechange = function() {
 					if (this.readyState == 4 && this.status == 200) {
-						document.getElementById(str).innerHTML = 'Draft'
+						document.getElementById(str).innerHTML = 'Disable'
 					}
 				};
 				xhttp.open("POST", "enable.jsp?id=" + str, true);
@@ -202,7 +202,7 @@ function a(){
 				var xhttp = new XMLHttpRequest();
 				xhttp.onreadystatechange = function() {
 					if (this.readyState == 4 && this.status == 200) {
-						document.getElementById(str).innerHTML = 'save as Draft'
+						document.getElementById(str).innerHTML = 'Enable'
 					}
 				};
 				xhttp.open("POST", "disable.jsp?id=" + str, true);

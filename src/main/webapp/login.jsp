@@ -49,15 +49,16 @@
                
             </div>
             <div class="card-body">
-              <form action="Login" method="post" >
+              <form action="Login" method="post" name='myForm' onsubmit="return validateForm()">
                 <div class="form-group">
                   <label for="un" data-aos="zoom-in-up" data-aos-easing="linear" data-aos-duration="2000">Username</label>
-                  <input data-aos="fade-up" data-aos-duration="1500" type="text" class="form-control" name="un" placeholder="Username" minlength=4  required>
+                  <input data-aos="fade-up" data-aos-duration="1500" type="text" class="form-control" name="un" placeholder="Username"  >
                 </div>
                 <div class="form-group">
                   <label data-aos="zoom-in-up" data-aos-easing="linear" data-aos-duration="2000">Password</label>
                   <input data-aos="fade-up" data-aos-duration="1500" type="password" class="form-control"  name="pw" placeholder="Password" 
-                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                   >
+                 
                 </div>
                 <input type="submit" data-aos="fade-up" data-aos-duration="2000" value="login" class="btn btn-primary btn-block">
                 <a href="signup.jsp" class="mt-2 pt-5 text-right  text-capitalize">+ New user </a>
@@ -93,6 +94,20 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();
+  
+  function validateForm() {
+	  var x = document.forms["myForm"]["un"].value;
+	  if (x == "") {
+	    alert("email must be filled out");
+	    return false;
+	  }
+	  var y = document.forms["myForm"]["pw"].value;
+	  if (y == "") {
+		  
+	    alert("password must be filled out");
+	    return false;
+	  }
+	}
 </script>
 </body>
 

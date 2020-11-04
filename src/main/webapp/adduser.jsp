@@ -82,15 +82,15 @@
               
                 <div class="form-group">
                   <label for="username">Username</label>
-                  <input type="text" class="form-control" minlength=4 pattern="^[A-Za-z -]+$" title="only alphabets" name="addusername">
+                  <input type="text" class="form-control" minlength=4 pattern="^[A-Za-z -]+$" title="only alphabets" name="addusername" required>
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="email" class="form-control" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="please enter a valid email" name="addemail">
+                  <input type="email" class="form-control" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="please enter a valid email" name="addemail" required>
                 </div>
                 <div class="form-group">
                   <label for="salary">Salary</label>
-                  <input type="number" class="form-control" name="addsalary">
+                  <input type="number" class="form-control" title="enter your salary" name="addsalary" required>
                 </div> 
                 <input type="submit" value="Submit" class="btn btn-primary btn-block">
               </form>

@@ -1,5 +1,5 @@
 package com.adduser;
-
+import java.io.PrintWriter;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -53,6 +53,13 @@ public class Adduser extends HttpServlet {
 			
 		}catch(Exception e)
 		{
+			PrintWriter out = response.getWriter();
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('email should be Unique');");
+			out.println("location='adduser.jsp';");
+			out.println("</script>");
+		
+			
 			e.printStackTrace();
 		}	
 	}

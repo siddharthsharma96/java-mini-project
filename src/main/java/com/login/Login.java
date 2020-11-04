@@ -1,6 +1,7 @@
 package com.login;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -47,7 +48,12 @@ public class Login extends HttpServlet {
 				
 				response.sendRedirect("welcome.jsp");
 			}else {
-				response.sendRedirect("login.jsp");
+				PrintWriter out = response.getWriter();
+				out.println("<script type=\"text/javascript\">");
+				out.println("alert('User or password incorrect');");
+				out.println("location='login.jsp';");
+				out.println("</script>");
+				
 			}
 			
 			
