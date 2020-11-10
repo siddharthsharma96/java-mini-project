@@ -105,22 +105,25 @@ while(resultSet.next()){
               <h4>Edit Post</h4>
             </div>
             <div class="card-body">
-              <form method="post" action="update-process.jsp">
+              <form method="post" name='myForm' action="update-process.jsp" onsubmit="return validateForm()">
               <div class="form-group">
                   
                   <input type="hidden" class="form-control" name="updateid" value="<%=resultSet.getString("id") %>">
                 </div>
                 <div class="form-group">
                   <label for="username">Username</label>
-                  <input type="text"  style="text-transform:capitalize" class="form-control" minlength=4 pattern="^[A-Za-z -]+$" title="only alphabets" name="updateusername" value="<%=resultSet.getString("empname") %>" required>
+                  <input onsubmit="return validateForm()" type="text"  style="text-transform:capitalize" class="form-control" minlength=4 pattern="^[A-Za-z -]+$" title="only alphabets" name="updateusername" value="<%=resultSet.getString("empname") %>" >
+                	<p class='text-danger' id="demo"></p>
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="email" class="form-control" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="please enter a valid email" name="updateemail" value="<%=resultSet.getString("email") %>" required>
+                  <input onsubmit="return validateForm()" type="email" class="form-control" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="please enter a valid email" name="updateemail" value="<%=resultSet.getString("email") %>">
+                	<p class='text-danger' id="demo1"></p>
                 </div>
                 <div class="form-group">
                   <label for="salary">Salary</label>
-                  <input type="number" class="form-control" name="updatesalary" value="<%=resultSet.getString("salary") %>" required>
+                  <input onsubmit="return validateForm()" type="number" class="form-control" name="updatesalary" value="<%=resultSet.getString("salary") %>" >
+                	<p class='text-danger' id="demo2"></p>
                 </div> 
                 <div class="col-md-3">
                 <input type="submit" value="submit" class="btn btn-success btn-block">
@@ -188,6 +191,27 @@ e.printStackTrace();
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();
+  function validateForm() {
+	  var x = document.forms["myForm"]["updateusername"].value;
+	  if (x == "") {
+		  document.getElementById("demo").innerHTML = 'Username must be filled out';
+		  
+	    return false;
+	  }
+	  var y = document.forms["myForm"]["updateemail"].value;
+	  if (y == "") {
+		  document.getElementById("demo1").innerHTML = 'Email must be filled out';
+		  
+	    return false;
+	  }
+	  var z = document.forms["myForm"]["updatesalary"].value;
+	  if (z == "") {
+		  document.getElementById("demo2").innerHTML = 'Salary must be filled out';
+		  
+	    return false;
+	  }
+	  
+	}
 </script>
   <script>
     // Get the current year for the copyright

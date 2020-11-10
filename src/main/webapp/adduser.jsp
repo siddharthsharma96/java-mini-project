@@ -78,19 +78,22 @@
               <h4 >Create User</h4>
             </div>
             <div class="card-body">
-              <form action="Adduser" method="post">
+              <form action="Adduser" name='myForm' method="post" onsubmit="return validateForm()">
               
                 <div class="form-group">
                   <label for="username">Username</label>
-                  <input type="text" class="form-control" minlength=4 pattern="^[A-Za-z -]+$" title="only alphabets" name="addusername" required>
+                  <input onsubmit="return validateForm()" name="addusername" type="text" class="form-control" minlength=4 pattern="^[A-Za-z -]+$" title="only alphabets"  >
+               		<p class='text-danger' id="demo"></p>
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="email" class="form-control" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="please enter a valid email" name="addemail" required>
+                  <input onsubmit="return validateForm()" type="email" class="form-control" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="please enter a valid email" name="addemail">
+                	<p class='text-danger' id="demo1"></p>
                 </div>
                 <div class="form-group">
                   <label for="salary">Salary</label>
-                  <input type="number" class="form-control" title="enter your salary" name="addsalary" required>
+                  <input onsubmit="return validateForm()" type="number" class="form-control" title="enter your salary" name="addsalary">
+                	<p class='text-danger' id="demo2"></p>
                 </div> 
                 <input type="submit" value="Submit" class="btn btn-primary btn-block">
               </form>
@@ -127,6 +130,27 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();
+  function validateForm() {
+	  var x = document.forms["myForm"]["addusername"].value;
+	  if (x == "") {
+		  document.getElementById("demo").innerHTML = 'Username must be filled out';
+		  
+	    return false;
+	  }
+	  var y = document.forms["myForm"]["addemail"].value;
+	  if (y == "") {
+		  document.getElementById("demo1").innerHTML = 'Email must be filled out';
+		  
+	    return false;
+	  }
+	  var z = document.forms["myForm"]["addsalary"].value;
+	  if (z == "") {
+		  document.getElementById("demo2").innerHTML = 'Salary must be filled out';
+		  
+	    return false;
+	  }
+	  
+	}
 </script>
   <script>
     // Get the current year for the copyright
